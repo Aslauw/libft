@@ -6,7 +6,7 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 17:27:04 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/19 17:36:12 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/21 16:41:30 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char		*ft_strrchr(const char *s, int c)
 
 	if (s == NULL)
 		return (NULL);
-	i = ft_strlen(s) - 1;
+	i = ft_strlen(s);
 	while (i != 0)
 	{
 		if (s[i] == c)

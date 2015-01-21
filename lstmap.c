@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcat.c                                          :+:      :+:    :+:   */
+/*   lstmap.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/19 17:07:12 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 16:37:42 by lbinet           ###   ########.fr       */
+/*   Created: 2015/01/21 15:00:00 by lbinet            #+#    #+#             */
+/*   Updated: 2015/01/21 15:33:33 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,26 @@
 #include <string.h>
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+t_list		*ft_lstmap(t_list *lst, t_list *(*f)(t_list *elem))
 {
-	size_t	i;
-	size_t	len;
-	char	*tmp;
+	t_list	*link;
+	t_list	*new_lst;
+	t_list	*new;
 
-	if (dst == NULL || src == NULL || size == 0)
-		return (0);
-	i = 0;
-	len = ft_strlen(dst);
-	tmp = ft_strdup(src);
-	ft_memcpy(&dst[len], tmp, ft_strlen(tmp));
-	dst[len + ft_strlen(tmp)] = '\0';
-	free(tmp);
-	return (ft_strlen(dst));
+	if (lst == NULL || f == NULL)
+		return (NULL);
+	link = lst;
+	new_lst = ft_lstnew(link->content, link->content_size);
+	new_lst = f(new_lst);
+	new_lst->next = NULL;
+	new = new_lst;
+	link = link->next;
+	while (link)
+	{
+		new = ft_lstnew(link->content, link->content_size);
+		new = f(new);
+		ft_lstappend(&new_lst, new);
+		link = link->next;
+	}
+	return (new_lst);
 }

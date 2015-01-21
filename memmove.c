@@ -6,28 +6,26 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 15:22:31 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/19 15:39:25 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/21 16:20:16 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdlib.h>
 #include <string.h>
 #include "libft.h"
 
-void					*ft_memmove(void *dst, const void *src, size_t len)
+void			*ft_memmove(void *dst, const void *src, size_t len)
 {
-	unsigned char		*p;
-	const unsigned char	*d;
-	size_t				i;
+	char		*p;
+	const char	*d;
+	char		*tmp;
 
 	if (src == NULL || dst == NULL)
 		return (NULL);
-	p = dst;
 	d = src;
-	i = 0;
-	while (i < len)
-	{
-		p[i] = d[i];
-		i++;
-	}
+	p = dst;
+	tmp = ft_strdup(d);
+	ft_memcpy(p, tmp, len);
+	free (tmp);
 	return (dst);
 }

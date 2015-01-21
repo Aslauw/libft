@@ -6,18 +6,18 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 15:17:18 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 12:24:39 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/21 16:04:46 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
 
-void					*ft_memccpy(void *dst, const void *src, int c, size_t n)
+void			*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	unsigned char		*p;
-	const unsigned char	*d;
-	size_t				i;
+	char		*p;
+	const char	*d;
+	size_t		i;
 
 	if (src == NULL || dst == NULL)
 		return (NULL);

@@ -6,7 +6,7 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 17:58:45 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 12:26:44 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/21 17:36:14 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,25 @@
 
 int			ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	size_t	len;
+	size_t	i;
 
-	if (s1 == NULL || s2 == NULL || n == 0)
+	if (s1 == NULL || s2 == NULL)
 		return (0);
-	len = (ft_strlen(s1) > ft_strlen(s2)) ? ft_strlen(s1) : ft_strlen(s2);
-	len = (len < n) ? len : n;
-	return (ft_memcmp(s1, s2, len));
+	i = 0;
+	while (s1[i] && s2[i] && i < n)
+	{
+		if (s1[i] > s2[i])
+			return (1);
+		if (s1[i] < s2[i])
+			return (-1);
+		i++;
+	}
+	if (i < n)
+	{
+		if (s1[i] > s2[i])
+			return (1);
+		if (s1[i] < s2[i])
+			return (-1);
+	}
+	return (0);
 }

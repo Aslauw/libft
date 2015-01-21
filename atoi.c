@@ -6,7 +6,7 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/20 09:53:26 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 12:24:18 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/21 16:15:53 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,23 +38,25 @@ int			ft_atoi(const char *str)
 	int		p;
 	int		sign;
 	int		res;
+	char	*s;
 
 	if (str == NULL)
 		return (0);
+	s = ft_strtrimall(str);
 	i = 0;
 	sign = 0;
-	if (str[0] == '+' || str[0] == '-')
+	if (s[0] == '+' || s[0] == '-')
 	{
 		i = 1;
-		sign = (str[0] == '+') ? 0 : 1;
+		sign = (s[0] == '+') ? 0 : 1;
 	}
-	while (str[i] && str[i] >= '0' && str[i] <= '9')
+	while (s[i] && s[i] >= '0' && s[i] <= '9')
 		i++;
 	p = 0;
 	res = 0;
 	i = (i > 0) ? i - 1 : i;
-	while (i >= 0 && str[i] >= '0' && str[i] <= '9')
-		res += (str[i--] - '0') * ft_ipow(10, p++);
+	while (i >= 0 && s[i] >= '0' && s[i] <= '9')
+		res += (s[i--] - '0') * ft_ipow(10, p++);
 	res = (sign == 0) ? res : -res;
 	return (res);
 }

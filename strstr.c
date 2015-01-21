@@ -6,7 +6,7 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 17:37:53 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 12:27:47 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/21 16:44:32 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ char		*ft_strstr(const char *s1, const char *s2)
 	size_t	j;
 	size_t	len;
 
-	if (s2 == NULL)
+	if (s2 == NULL || ft_strlen(s2) == 0)
 		return ((char *)s1);
 	if (s1 == NULL)
 		return (NULL);

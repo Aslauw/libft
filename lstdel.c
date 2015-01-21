@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcat.c                                          :+:      :+:    :+:   */
+/*   lstdel.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/19 17:07:12 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 16:37:42 by lbinet           ###   ########.fr       */
+/*   Created: 2015/01/21 14:40:23 by lbinet            #+#    #+#             */
+/*   Updated: 2015/01/21 14:56:01 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,21 @@
 #include <string.h>
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+void		ft_lstdel(t_list **alst, void (*del)(void *, size_t))
 {
-	size_t	i;
-	size_t	len;
-	char	*tmp;
+	t_list	*link;
+	t_list	*tmp;
 
-	if (dst == NULL || src == NULL || size == 0)
-		return (0);
-	i = 0;
-	len = ft_strlen(dst);
-	tmp = ft_strdup(src);
-	ft_memcpy(&dst[len], tmp, ft_strlen(tmp));
-	dst[len + ft_strlen(tmp)] = '\0';
-	free(tmp);
-	return (ft_strlen(dst));
+	if (alst == NULL || *alst == NULL || del == NULL)
+		return ;
+	link = *alst;
+	while (link)
+	{
+		del(link->content, link->content_size);
+		tmp = link;
+		link = link->next;
+		free(tmp);
+		tmp = NULL;
+	}
+	*alst = NULL;
 }

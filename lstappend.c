@@ -1,32 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcat.c                                          :+:      :+:    :+:   */
+/*   lstappend.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/19 17:07:12 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 16:37:42 by lbinet           ###   ########.fr       */
+/*   Created: 2015/01/21 15:02:41 by lbinet            #+#    #+#             */
+/*   Updated: 2015/01/21 15:04:28 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdlib.h>
 #include <string.h>
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+void		ft_lstappend(t_list **alst, t_list *new)
 {
-	size_t	i;
-	size_t	len;
-	char	*tmp;
+	t_list	*link;
 
-	if (dst == NULL || src == NULL || size == 0)
-		return (0);
-	i = 0;
-	len = ft_strlen(dst);
-	tmp = ft_strdup(src);
-	ft_memcpy(&dst[len], tmp, ft_strlen(tmp));
-	dst[len + ft_strlen(tmp)] = '\0';
-	free(tmp);
-	return (ft_strlen(dst));
+	if (alst == NULL || *alst == NULL || new == NULL)
+		return ;
+	link = *alst;
+	while (link->next)
+		link = link->next;
+	link->next = new;
+	new->next = NULL;
 }

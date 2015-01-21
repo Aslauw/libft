@@ -6,18 +6,18 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 15:53:02 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/19 16:00:00 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/21 17:38:10 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <string.h>
 #include "libft.h"
 
-int						ft_memcmp(const void *s1, const void *s2, size_t n)
+int				ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	const unsigned char	*p1;
-	const unsigned char	*p2;
-	size_t				i;
+	const char	*p1;
+	const char	*p2;
+	size_t		i;
 
 	if (s1 == NULL || s2 == NULL)
 		return (0);

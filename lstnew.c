@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   strlcat.c                                          :+:      :+:    :+:   */
+/*   lstnew.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/01/19 17:07:12 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 16:37:42 by lbinet           ###   ########.fr       */
+/*   Created: 2015/01/21 13:58:27 by lbinet            #+#    #+#             */
+/*   Updated: 2015/01/21 14:20:14 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,16 @@
 #include <string.h>
 #include "libft.h"
 
-size_t		ft_strlcat(char *dst, const char *src, size_t size)
+t_list			*ft_lstnew(void const *content, size_t content_size)
 {
-	size_t	i;
-	size_t	len;
-	char	*tmp;
+	t_list		*link;
 
-	if (dst == NULL || src == NULL || size == 0)
-		return (0);
-	i = 0;
-	len = ft_strlen(dst);
-	tmp = ft_strdup(src);
-	ft_memcpy(&dst[len], tmp, ft_strlen(tmp));
-	dst[len + ft_strlen(tmp)] = '\0';
-	free(tmp);
-	return (ft_strlen(dst));
+	link = (t_list *)malloc(sizeof(t_list));
+	if (link == NULL)
+		return (NULL);
+	link->content = malloc(content_size);
+	ft_memcpy(link->content, content, content_size);
+	link->content_size = content_size;
+	link->next = NULL;
+	return (link);
 }

@@ -6,7 +6,7 @@
 #    By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/19 14:18:01 by lbinet            #+#    #+#              #
-#    Updated: 2015/01/21 12:20:31 by lbinet           ###   ########.fr        #
+#    Updated: 2015/01/21 15:47:09 by lbinet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,6 +48,7 @@ SRC			=	memset.c		\
 				memdel.c		\
 				strnew.c		\
 				strdel.c		\
+				strclr.c		\
 				striter.c		\
 				striteri.c		\
 				strmap.c		\
@@ -57,6 +58,7 @@ SRC			=	memset.c		\
 				strsub.c		\
 				strjoin.c		\
 				strtrim.c		\
+				strtrimall.c	\
 				strsplit.c		\
 				itoa.c			\
 				\
@@ -67,7 +69,15 @@ SRC			=	memset.c		\
 				putchar_fd.c	\
 				putstr_fd.c		\
 				putendl_fd.c	\
-				putnbr_fd.c
+				putnbr_fd.c		\
+				\
+				lstnew.c		\
+				lstdelone.c		\
+				lstdel.c		\
+				lstadd.c		\
+				lstappend.c		\
+				lstiter.c		\
+				lstmap.c		\
 
 OBJ			= $(SRC:.c=.o)
 
