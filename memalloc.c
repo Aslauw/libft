@@ -6,7 +6,7 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/20 11:36:42 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/20 11:40:11 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/22 11:38:43 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void		*ft_memalloc(size_t size)
 	void	*p;
 
 	p = malloc(size);
-	if (p == NULL)
+	if (p == NULL || size == 0)
 		return (NULL);
 	ft_bzero(p, size);
 	return (p);
