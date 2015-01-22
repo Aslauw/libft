@@ -6,7 +6,7 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 15:53:02 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 17:38:10 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/22 16:28:37 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ int				ft_memcmp(const void *s1, const void *s2, size_t n)
 	while (i < n)
 	{
 		if (p1[i] != p2[i])
-			return (p1[i] - p2[i]);
+			return ((unsigned char)p1[i] - (unsigned char)p2[i]);
 		i++;
 	}
 	return (0);

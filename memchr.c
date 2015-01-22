@@ -6,7 +6,7 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 15:36:05 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 16:07:42 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/01/22 16:30:44 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void			*ft_memchr(const void *s, int c, size_t n)
 	p = s;
 	while (i < n)
 	{
-		if (p[i] == c)
+		if ((unsigned char)p[i] == (unsigned char)c)
 			return ((void *)&(p[i]));
 		i++;
 	}
