@@ -6,15 +6,13 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/21 10:38:48 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 11:37:52 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/02/03 12:48:45 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 #include <string.h>
 #include "libft.h"
-
-#include <stdio.h>
 
 static char	*strreverse(char *s)
 {
