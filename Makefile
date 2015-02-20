@@ -6,14 +6,14 @@
 #    By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2015/01/19 14:18:01 by lbinet            #+#    #+#              #
-#    Updated: 2015/01/21 15:47:09 by lbinet           ###   ########.fr        #
+#    Updated: 2015/02/20 12:30:44 by lbinet           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME		= libft.a
-CFLAGS		= -Wall -Wextra -Werror
+CFLAGS		= -Wall -Wextra -Werror -I include
 
-SRC			=	memset.c		\
+FILES		=	memset.c		\
 				bzero.c			\
 				memcpy.c		\
 				memccpy.c		\
@@ -79,7 +79,8 @@ SRC			=	memset.c		\
 				lstiter.c		\
 				lstmap.c		\
 
-OBJ			= $(SRC:.c=.o)
+SRC			= $(addprefix $(FILES), src/)
+OBJ			= $(FILES:%.c=obj/%.o)
 
 # Colors
 NO_COLOR	= \x1b[0m
@@ -100,9 +101,10 @@ $(NAME): $(OBJ)
 		printf "\e[42G$(GREEN)✓$(NO_COLOR)\n" ; \
 	fi;
 
-.c.o:
+obj/%.o: src/%.c include
+	@mkdir -p obj
 	@printf "$(YELLOW)$< $(NO_COLOR)"
-	@$(CC) $(CFLAGS) -c $<
+	@$(CC) $(CFLAGS) -c $< -o $@
 	@if [ -a $@ ] ; \
 	then \
 		printf "\e[42G$(GREEN)✓$(NO_COLOR)\n" ; \
@@ -110,7 +112,7 @@ $(NAME): $(OBJ)
 
 clean:
 	@printf "$(GRAY)Removing objects$(NO_COLOR)"
-	@rm -f $(OBJ)
+	@rm -rf obj
 	@printf "\e[42G$(GREEN)✓$(NO_COLOR)\n"
 
 fclean: clean
