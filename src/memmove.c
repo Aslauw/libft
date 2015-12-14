@@ -6,7 +6,7 @@
 /*   By: lbinet <lbinet@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/01/19 15:22:31 by lbinet            #+#    #+#             */
-/*   Updated: 2015/01/21 16:20:16 by lbinet           ###   ########.fr       */
+/*   Updated: 2015/12/14 16:27:08 by lbinet           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,6 @@ void			*ft_memmove(void *dst, const void *src, size_t len)
 	p = dst;
 	tmp = ft_strdup(d);
 	ft_memcpy(p, tmp, len);
-	free (tmp);
+	free(tmp);
 	return (dst);
 }
